@@ -47,7 +47,7 @@ then
 else 
 
   echo "Getting pre-packaged Spark $SPARK_VERSION built against $HADOOP_PROFILE"
-  wget http://s3.amazonaws.com/spark-related-packages/spark-$SPARK_VERSION-bin-$HADOOP_PROFILE.tgz
+  wget http://s3.amazonaws.com/spark-related-packages/spark-$SPARK_VERSION-bin$HADOOP_PROFILE.tgz
 
   echo "Unpacking Spark"
   tar xvzf spark-*.tgz > /tmp/spark-ec2_spark.log
