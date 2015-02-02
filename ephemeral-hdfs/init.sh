@@ -29,8 +29,17 @@ case "$HADOOP_MAJOR_VERSION" in
     ;;
 
   *)
-     echo "ERROR: Unknown Hadoop version"
-     return -1
+    wget http://s3.amazonaws.com/spark-related-packages/hadoop-2.4.0.tar.gz
+    echo "Unpacking Hadoop"
+    tar xvzf hadoop-*.tar.gz > /tmp/spark-ec2_hadoop.log
+    rm hadoop-*.tar.gz
+    mv hadoop-2.4.0/ ephemeral-hdfs/
+
+    # Have single conf dir
+    rm -rf /root/ephemeral-hdfs/etc/hadoop/
+    ln -s /root/ephemeral-hdfs/conf /root/ephemeral-hdfs/etc/hadoop
+    ;;
+
 esac
 cp /root/hadoop-native/* ephemeral-hdfs/lib/native/
 /root/spark-ec2/copy-dir /root/ephemeral-hdfs
