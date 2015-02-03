@@ -35,11 +35,8 @@ case "$HADOOP_MAJOR_VERSION" in
     mv hadoop-2.4.1/ persistent-hdfs/
 
     # Have single conf dir
-    rm -rf /root/persistent-hdfs/etc/hadoop/
-    ln -s /root/persistent-hdfs/conf /root/persistent-hdfs/etc/hadoop
     ;;
 
 esac
-cp /root/hadoop-native/* /root/persistent-hdfs/lib/native/
 /root/spark-ec2/copy-dir /root/persistent-hdfs
 popd

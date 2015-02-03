@@ -35,12 +35,8 @@ case "$HADOOP_MAJOR_VERSION" in
     rm hadoop-*.tar.gz
     mv hadoop-2.4.1/ ephemeral-hdfs/
 
-    # Have single conf dir
-    rm -rf /root/ephemeral-hdfs/etc/hadoop/
-    ln -s /root/ephemeral-hdfs/conf /root/ephemeral-hdfs/etc/hadoop
     ;;
 
 esac
-cp /root/hadoop-native/* ephemeral-hdfs/lib/native/
 /root/spark-ec2/copy-dir /root/ephemeral-hdfs
 popd
