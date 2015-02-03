@@ -50,6 +50,7 @@ done
 cd /tmp
 wget "http://archive.apache.org/dist/maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.tar.gz"
 tar xvzf apache-maven-3.2.3-bin.tar.gz
+rm -rf /opt/apache-maven-3.2.3/
 mv apache-maven-3.2.3 /opt/
 
 # Edit bash profile
@@ -61,6 +62,7 @@ echo "export PATH=\$PATH:\$M2_HOME/bin" >> ~/.bash_profile
 source ~/.bash_profile
 
 # Build Hadoop to install native libs
+rm -rf /root/hadoop-native/
 sudo mkdir /root/hadoop-native
 cd /tmp
 sudo yum install -y protobuf-compiler cmake openssl-devel
