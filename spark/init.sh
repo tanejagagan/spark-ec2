@@ -12,7 +12,7 @@ fi
 HADOOP_VERSION=${HADOOP_VERSION-"2.4.1"}
 
 if [ `python -c "print '$HADOOP_VERSION'.startswith('2.4')"` == "True" ]; then
-  HADOOP_PROFILE="hadoop-2.4"
+  HADOOP_PROFILE="hadoop2.4"
 else
   echo "Unknown hadoop profile. Exiting."
   return -1
@@ -47,7 +47,7 @@ then
 else 
 
   echo "Getting pre-packaged Spark $SPARK_VERSION built against $HADOOP_PROFILE"
-  wget http://s3.amazonaws.com/spark-related-packages/spark-$SPARK_VERSION-bin$HADOOP_PROFILE.tgz
+  wget http://s3.amazonaws.com/spark-related-packages/spark-$SPARK_VERSION-bin-$HADOOP_PROFILE.tgz
 
   echo "Unpacking Spark"
   tar xvzf spark-*.tgz > /tmp/spark-ec2_spark.log
