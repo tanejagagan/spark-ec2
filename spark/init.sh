@@ -41,7 +41,7 @@ then
   # TODO mvn install ??
   # Note: this takes a over an hour on an m3.medium
   # TODO find way of selecting which modules to build, as we don't need all of them.
-  mvn -Pyarn -P$HADOOP_PROFILE -Dhadoop.version=${HADOOP_VERSION} -DskipTests clean package
+  mvn -Pyarn -P$HADOOP_PROFILE -Dhadoop.version=${HADOOP_VERSION} -Phive -DskipTests clean package
   popd
 
 # Pre-packaged spark version:
