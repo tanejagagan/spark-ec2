@@ -28,9 +28,15 @@ case "$HADOOP_MAJOR_VERSION" in
     ;;
 
   *)
-     echo "ERROR: Unknown Hadoop version"
-     return -1
+    wget http://archive.apache.org/dist/hadoop/common/hadoop-2.4.1/hadoop-2.4.1.tar.gz
+    echo "Unpacking Hadoop"
+    tar xvzf hadoop-*.tar.gz > /tmp/spark-ec2_hadoop.log
+    rm hadoop-*.tar.gz
+    mv hadoop-2.4.1/ persistent-hdfs/
+
+    # Have single conf dir
+    ;;
+
 esac
-cp /root/hadoop-native/* /root/persistent-hdfs/lib/native/
 /root/spark-ec2/copy-dir /root/persistent-hdfs
 popd
